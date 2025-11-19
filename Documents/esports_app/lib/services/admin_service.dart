@@ -1,4 +1,4 @@
-// lib/services/admin_service.dart
+
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'api_config.dart';
@@ -7,8 +7,6 @@ import 'auth_service.dart';
 class AdminService {
   final AuthService _authService = AuthService();
 
-  // 1. OBTENER TODOS LOS USUARIOS
-  // Llama a: GET /api/Admin/users
   Future<List<dynamic>> getUsers() async {
     final token = await _authService.getToken();
     if (token == null) throw Exception('No autenticado como Admin');
@@ -28,8 +26,7 @@ class AdminService {
     }
   }
 
-  // 2. PROMOVER A ORGANIZADOR
-  // Llama a: POST /api/Admin/promote/{userId}
+  
   Future<bool> promoteUser(int userId) async {
     final token = await _authService.getToken();
     if (token == null) throw Exception('No autenticado como Admin');
@@ -44,8 +41,6 @@ class AdminService {
     return response.statusCode == 200;
   }
 
-  // 3. DEGRADAR A JUGADOR
-  // Llama a: POST /api/Admin/demote/{userId}
   Future<bool> demoteUser(int userId) async {
     final token = await _authService.getToken();
     if (token == null) throw Exception('No autenticado como Admin');
