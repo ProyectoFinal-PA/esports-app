@@ -1,0 +1,1 @@
+const String apiUrl = "https://app-2511161947512.azurewebsites.net";
